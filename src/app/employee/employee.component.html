@@ -1,0 +1,56 @@
+<div class="container mt-5 w-75">
+    <h2 class="text-center">Employee List Page</h2>
+    <table class="table table-bordered mt-3">
+      <thead class="bg-dark">
+        <tr>
+          <th>Employee Name</th>
+          <th>Contact No</th>
+          <th>Email</th>
+          <th>Address</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employee of employees">
+          <td>{{ employee.name }}</td>
+          <td>{{ employee.contact }}</td>
+          <td>{{ employee.email }}</td>
+          <td>{{ employee.address }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <button type="button" class="btn btn-danger mt-3" data-bs-toggle="modal" data-bs-target="#addEmployeeModal">
+      Add Employee
+    </button>
+  </div>
+  
+  <div class="modal fade" id="addEmployeeModal" tabindex="-1" aria-labelledby="addEmployeeModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addEmployeeModalLabel">ADD EMPLOYEE PAGE</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="employeeName" class="form-label">Employee Name</label>
+              <input [(ngModel)]="newEmployee.name" name="name" type="text" class="form-control" id="employeeName" />
+            </div>
+            <div class="mb-3">
+              <label for="contactNo" class="form-label">Contact No</label>
+              <input [(ngModel)]="newEmployee.contact" name="contact" type="text" class="form-control" id="contactNo" />
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input [(ngModel)]="newEmployee.email" name="email" type="email" class="form-control" id="email" />
+            </div>
+            <div class="mb-3">
+              <label for="address" class="form-label">Address</label>
+              <input [(ngModel)]="newEmployee.address" name="address" type="text" class="form-control" id="address" />
+            </div>
+            <button type="button" class="btn btn-danger w-100" data-bs-dismiss="modal" (click)="addEmployee()">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
